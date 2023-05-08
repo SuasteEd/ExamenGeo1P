@@ -1,0 +1,18 @@
+html, body {
+  margin: 0;
+  height: 100%;
+ background: #000;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+p {
+  color: #fff;
+  font-family: Poppins;
+  font-weight: bold;
+  margin: 0 0 0 700px;
+}

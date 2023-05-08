@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using OpenLayers with Vite</title>
+  </head>
+  <body>
+    <div id="map">
+      <p id="dato"></p>
+    </div>
+    <script type="module" src="../javascript/map.js"></script>
+  </body>
+</html>
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mapa con ubicación actual</title>
+  <link rel="stylesheet" href="https://openlayers.org/en/v6.13.0/css/ol.css" type="text/css">
+  <script src="https://openlayers.org/en/v6.13.0/build/ol.js"></script>
+  <style>
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+    // Obtener la ubicación actual del dispositivo
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    } else {
+      alert("Lo siento, tu navegador no admite la API de Geolocalización.");
+    }
+
+    // Función para mostrar el mapa y la ubicación actual
+    function successCallback(position) {
+      // Coordenadas de León, Guanajuato
+      var leon = ol.proj.fromLonLat([-101.6869, 21.1231]);
+
+      // Coordenadas de la ubicación actual
+      var currentCoords = ol.proj.fromLonLat([position.coords.longitude, position.coords.latitude]);
+
+      // Si las coordenadas están fuera de León, mostrar mensaje de error
+      if (!ol.extent.containsCoordinate(ol.proj.get("EPSG:3857").getExtent(), currentCoords)) {
+        alert("Lo siento, tu ubicación está fuera de la zona de León, Guanajuato.");
+        return;
+      }
+
+      // Crear el mapa y centrarlo en la ubicación actual
+      var map = new ol.Map({
+        target: "map",
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM(),
+          }),
+        ],
+        view: new ol.View({
+          center: currentCoords,
+          zoom: 16,
+        }),
+      });
+
+      // Agregar un marcador en la ubicación actual
+      var marker = new ol.Feature({
+        geometry: new ol.geom.Point(currentCoords),
+      });
+      var markerLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+          features: [marker],
+        }),
+        style: new ol.style.Style({
+          image: new ol.style.Icon({
+            src: "https://openlayers.org/en/latest/examples/data/icon.png",
+            scale: 0.05,
+          }),
+        }),
+      });
+      map.addLayer(markerLayer);
+    }
+
+    // Función para manejar errores
+    function errorCallback(error) {
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          alert("Lo siento, no tienes permiso para acceder a tu ubicación.");
+          break;
+        case error.POSITION_UNAVAILABLE:
+          alert("Lo siento, no se pudo obtener tu ubicación.");
+          break;
+        case error.TIMEOUT:
+          alert("Lo siento, se agotó el tiempo para obtener tu ubicación.");
+          break;
+        default:
+          alert("Lo siento, se produjo un error al obtener tu ubicación.");
+      }
+    }
+  </script>
+</body>
+</html> -->

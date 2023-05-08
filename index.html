@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup 3</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  </head>
+  <body>
+    <!-- Slider main container -->
+    <form action="./views/map.html" method="get">
+      <div class="card">
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <img src="./assets/1.gif" />
+              <h2>Bienvenido</h2>
+              <h3>Ingresa los siguientes datos</h3>
+              <input
+                id="name"
+                name="name"
+                spellcheck="false"
+                oninput="checkValid(event)"
+                type="text"
+                placeholder="Nombre" />
+              <button disabled type="button" onclick="gotoSlide(1)">
+                Siguiente
+              </button>
+            </div>
+            <div class="swiper-slide">
+              <div className="image-wrapper">
+                <img src="./assets/2.gif" />
+              </div>
+              <h2>Coordenadas</h2>
+              <input
+                id="latitud"
+                name="latitud"
+                oninput="checkValid(event)"
+                type="text"
+                placeholder="Latitud" />
+              <input
+                id="longitud"
+                name="longitud"
+                oninput="checkValid(event)"
+                type="text"
+                placeholder="Longitud" />
+              <button disabled type="button" onclick="gotoSlide(2)">
+                Next
+              </button>
+            </div>
+            <div class="swiper-slide">
+              <div className="image-wrapper">
+                <img src="./assets/3.gif" />
+              </div>
+              <h2>Finalizar</h2>
+              <h3>¡Vamos al mapa!</h3>
+              <button type="submit">Aceptar</button>
+              <button class="secondary" onclick="restart()">Regresar</button>
+            </div>
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
